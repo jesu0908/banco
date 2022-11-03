@@ -35,13 +35,13 @@ class CuentaBanco:
       return False
   
   def transferir(self, valor):
-  #  if self.saldo >= valor:
-#      self.saldo -= valor
-#      guardarReg(fechaActual() + ';' + str(self.cuenta) + ';' + 'ret' + ';' + str(valor) + ';\n')
-#     return True
+    if self.saldo >= valor:
+      self.saldo -= valor
+      guardarReg(fechaActual() + ';' + str(self.cuenta) + ';' + 'ret' + ';' + str(valor) + ';\n')
+      return True
     
- #   else: 
- #     print('*Fondos insuficientes: $ ', self.saldo)
+    else: 
+      print('*Fondos insuficientes: $ ', self.saldo)
       print('*Transferencia rechazada!')
 
   def extracto(self):
