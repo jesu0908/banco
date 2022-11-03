@@ -34,7 +34,7 @@ class CuentaBanco:
       print('Saldo insuficiente: ${:,.2f}'.format(self.saldo))
       return False
   
-  def transferir(self, valor):
+  def transferir(self, cuenta, valor):
     if self.saldo >= valor:
       self.saldo -= valor
       guardarReg(fechaActual() + ';' + str(self.cuenta) + ';' + 'ret' + ';' + str(valor) + ';\n')
@@ -78,7 +78,6 @@ class CuentaBanco:
       if op == 5:
         self.extracto()
       if op == 0:
-        print(arrayCuentas)
         arrayCuentas[self.cuenta-1][1] = self.saldo
         f = open('Cuentas.txt' , 'w')
         for linea in arrayCuentas:
@@ -97,7 +96,7 @@ with open('Cuentas.txt') as f:
     arrayCuentas[i].append(int(reg[0]))
     arrayCuentas[i].append(float(reg[1]))
     arrayCuentas[i].append(reg[2])
-    i + 1
+    i += 1
 
 cuenta = int(input('Cuenta: '))
 saldo = arrayCuentas[cuenta-1][1]
